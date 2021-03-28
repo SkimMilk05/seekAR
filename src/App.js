@@ -1,6 +1,4 @@
 import './App.css';
-import Form from './components/Form.js';
-import Link from './components/Link.js';
 
 import React, { Component } from 'react';
 
@@ -9,25 +7,22 @@ class App extends Component {
         super(props);
         this.state = { //fields
             players: [],
-            finder: 0
+            seeker: 0,
+            round_in_sesion: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    handleStart() {
+      
+    }
 
-    handleSubmit() {
-        this.setState({item_found: true})
+    handleFinish() {
+        this.setState({round_in_sesion: false})
     }
 
 
     render() {
-        return (
-          <div className="App">
-            <header className="App-header">
-              <Form></Form>
-              <Link></Link>
-            </header>
-          </div>
-        );
+        return (null);
     }
 }
 
