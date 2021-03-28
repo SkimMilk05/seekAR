@@ -38,7 +38,7 @@ class App extends Component {
 
     render() {
 
-        const {link, hide, start_game} = this.state;
+        const {link, hide} = this.state;
 
         if (link) {
             return <div className="App"><Link model={this.state.model}/></div>
