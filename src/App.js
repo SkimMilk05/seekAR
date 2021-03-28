@@ -10,7 +10,9 @@ class App extends Component {
         this.state = { //fields
             start_game: true,
             hide: false,
-            link: false
+            link: false,
+
+            time: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -24,7 +26,14 @@ class App extends Component {
     }
 
     catchTime = (time) => { //get time from startGame. pass to Hide Component
-      this.setState({time: time});
+      this.setState({
+          hide: true,
+          time: time
+        });
+    }
+
+    catchEnd = (t) => {
+        this.setState({link: t});
     }
 
 
@@ -36,7 +45,7 @@ class App extends Component {
             return <div className="App"><Link model={this.state.model}/></div>
         } 
         else if (hide) {
-            return <div className="App"><Hide time={this.state.time} passModelData={this.catchModelData} /></div>
+            return <div className="App"><Hide passEnd={this.catchEnd} time={this.state.time} passModelData={this.catchModelData} /></div>
         }
         else {
             return <div className="App"><StartGame passTime={this.catchTime}/></div> 

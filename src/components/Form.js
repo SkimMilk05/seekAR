@@ -49,7 +49,6 @@ class Form extends Component {
                 <h3>Choose your avatar:</h3>
                 <div className="dropdown">
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
-                    <button onClick={this.submit} className="btn">Done Hiding</button>
                 </div>
                 <button className="btn">Select Location</button>
                 <iframe
