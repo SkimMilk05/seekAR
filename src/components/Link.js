@@ -26,7 +26,7 @@ class Link extends Component {
         return (                
             <div className="link-page">
                 <a href={this.state.link} target="_blank" onClick={this.linkClicked}>Ready or not, here I come!</a>
-                <button ref="found-btn" type="submit"
+                <button type="submit"
                     title="I found you!"
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}
