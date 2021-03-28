@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Form from './Form.js';
 import Timer from './Timer.js';
-
+import './Hide.css'
 
 class Hide extends Component {
 
@@ -36,9 +36,11 @@ class Hide extends Component {
     render () {
         if (!this.state.end) {
             return (
-                <div>
-                    <Timer passEndData={this.catchEndData} time={this.props.time}/>
-                    <Form passModelData={this.catchModelData}/>
+                <div className="hider-out">
+                    <div className="hider-in">
+                        <Timer passEndData={this.catchEndData} time={this.props.time}/>
+                        <Form passModelData={this.catchModelData}/>
+                    </div>
                 </div>
             )
         } 

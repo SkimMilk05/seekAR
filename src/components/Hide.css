@@ -1,0 +1,19 @@
+html, body{
+  margin: 0px;
+  height: 100%;
+}
+.hider-out{
+    font-family: 'Quicksand', sans-serif;
+    background-color:#b7ead9a6;
+    height: 100vh;
+    width: 100%;
+    color: black;
+    margin: 0 auto;
+    display: table;
+}
+
+.hider-in{
+    text-align:center;
+    display:table-cell;
+    vertical-align: middle;
+}
