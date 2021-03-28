@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import './StartGame.css'
 
 const numbers = [
     {label: '10 sec', value: 10000},
@@ -34,7 +35,7 @@ class StartGame extends Component {
             <div className="start-page">
                 <h3>Close your eyes</h3>
                 <h5>To what are you counting to?</h5>
-                <Select options={numbers} onChange={this.handleTimePick}/>
+                <Select className="dropdown" options={numbers} onChange={this.handleTimePick}/>
                 <button onClick={this.handleSubmit}>Starting Countdown!</button>
             </div>
         );
