@@ -48,7 +48,7 @@ class Form extends Component {
                 <div className="dropdown">
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
                 </div>
-                <button className="btn">Select Location</button> <br></br>
+                <button className="location-btn">Select Location</button> <br></br>
                 <iframe
                     className="map"
                     width="600"

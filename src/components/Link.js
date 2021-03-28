@@ -28,15 +28,17 @@ class Link extends Component {
         const link = modelLinks[model];
         return (                
             <div className="link-page">
-                <h4>[Seeker]</h4>
-                <p>Ready or not...</p>
-                <a classname="link-here" href={link} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
-                    Here I come!</a> <br></br>
-                <button className="btn" type="submit"
-                    title="I found you!"
-                    disabled={!this.state.link_clicked}
-                    onClick={this.handleSubmit}
-                >I found you!</button>                
+                <div className="link-inner">
+                    <h3>[Seeker]</h3>
+                    <h3>Ready or not...</h3>
+                    <a className="model-link" href={link} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
+                        Here I come!</a> <br></br>
+                    <button className="btn" type="submit"
+                        title="I found you!"
+                        disabled={!this.state.link_clicked}
+                        onClick={this.handleSubmit}
+                    >I found you!</button>    
+                </div>
             </div>
         );
     }
