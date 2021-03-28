@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './Link.css'
 import {modelLinks} from './modelLink.js';
-import {modelQRs} from './modelLink.js';
-import pika from './assets/pika.PNG';
-// seeker
 
 class Link extends Component {
     constructor(props) {
@@ -28,17 +25,18 @@ class Link extends Component {
 
     render() {
         const model = this.props.model;
+        const link = modelLinks[model];
         return (                
             <div className="link-page">
                 <h4>[Seeker]</h4>
                 <p>Ready or not...</p>
-                <a classname="link-here" href={modelLinks[model]} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
+                <a classname="link-here" href={link} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
                     Here I come!</a> <br></br>
                 <button className="btn" type="submit"
                     title="I found you!"
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}
-                >I found it!</button>                
+                >I found you!</button>                
             </div>
         );
     }

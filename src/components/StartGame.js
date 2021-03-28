@@ -24,6 +24,7 @@ class StartGame extends Component {
 
     handleSubmit() {
         this.setState({submitted: true})
+        this.props.passTime(this.state.time);
     }
 
     handleTimePick(event) {
@@ -36,7 +37,7 @@ class StartGame extends Component {
             <div className="start-page">
                 <h4>[Seeker]</h4>
                 <h2>Close your eyes</h2>
-                <h3>To what are you counting to?</h3>
+                <h3>What are you counting to?</h3>
                 <Select className="dropdown" options={numbers} onChange={this.handleTimePick}/>
                 <button className="btn" onClick={this.handleSubmit}>Starting Countdown!</button>
             </div>

@@ -1,34 +1,46 @@
 import './App.css';
-import UserSess from './components/UserSess.js';
 import React, { Component } from 'react';
-import Form from './components/Form.js';
+import Link from './components/Link.js';
+import Hide from './components/Hide.js';
+import StartGame from './components/StartGame.js';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { //fields
-            players: false,
-            seeker: true,
-            round_in_sesion: false,
-            time: 0
+            start_game: true,
+            hide: false,
+            link: false
         };
-        this.handleStart = this.handleStart.bind(this);
-    }
-    handleStart() {
-      this.setState({round_in_sesion: false});
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleFinish() {
-        this.setState({round_in_sesion: false});
-        this.setState({seeker: (this.state.seeker + 1) % this.state.players.length})
+    handleSubmit() {
+        this.setState({item_found: true})
     }
-    
+
+    catchModelData = (model) => {
+      this.setState({model: model});
+    }
+
+    catchTime = (time) => { //get time from startGame. pass to Hide Component
+      this.setState({time: time});
+    }
+
+
     render() {
-        return (
-            <div>
-                <UserSess time={this.state.time} />
-            </div>
-        );
+
+        const {link, hide, start_game} = this.state;
+
+        if (link) {
+            return <div className="App"><Link model={this.state.model}/></div>
+        } 
+        else if (hide) {
+            return <div className="App"><Hide time={this.state.time} passModelData={this.catchModelData} /></div>
+        }
+        else {
+            return <div className="App"><StartGame passTime={this.catchTime}/></div> 
+        }
     }
 }
 
