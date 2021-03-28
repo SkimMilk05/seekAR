@@ -37,9 +37,7 @@ class Link extends Component {
                     title="I found you!"
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}
-                />
-                <img scr={pika}/>
-                
+                />                
             </div>
         );
     }

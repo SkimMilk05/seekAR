@@ -14,22 +14,11 @@ import Countdown from 'react-countdown';
 import {modelOptions} from './modelLink.js';
 import Select from 'react-select';
 
-import MapPicker from 'react-google-map-picker';
-
 var location;
 
-function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-      alert("Geolocation is not supported by this browser.");
-    }
-  }
+
   
-function showPosition(position) {
-    location = {lat: position.coords.latitude, lng: position.coords.longitude};
-    alert('set location');
-}
+
 
 class Form extends Component {
 
@@ -44,9 +33,6 @@ class Form extends Component {
         };
         this.handleModelPick = this.handleModelPick.bind(this);
         this.submit = this.submit.bind(this);
-        this.handleChangeLocation = this.handleChangeLocation.bind(this);
-        this.handleChangeZoom = this.handleChangeZoom.bind(this);
-        this.handleResetLocation = this.handleResetLocation.bind(this);
     }
 
     handleModelPick(event) {
@@ -59,22 +45,26 @@ class Form extends Component {
         alert('Time out')
     }
 
+    getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition( position => {
+                console.log(position.coords.latitude);
+                const loc = `${position.coords.latitude},${position.coords.longitude}`;
+                console.log(loc);
+                this.setState({
+                    location: loc
+                });
+            });
+        } else { 
+          alert("Geolocation is not supported by this browser.");
+        }
+    }
+
     componentDidMount() {
-        getLocation();
+        this.getLocation();
     }
 
-    handleChangeLocation (lat, lng){
-        this.setState({location: {lat:lat, lng:lng}});
-    }
 
-    handleChangeZoom (newZoom){
-        this.setState({zoom: newZoom});
-    }
-
-    handleResetLocation(){
-        this.setState({location: {lat:0, lng:0}});
-        this.setState({zoom: 20});
-    }
 
 
 
@@ -88,14 +78,20 @@ class Form extends Component {
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
                     <button onClick={this.submit} className="dropbtn">Done Hiding</button>
                 </div>
-                <div>
+                {/*<div>
                     <button onClick={this.handleResetLocation}>Reset Location</button>
                     <label>Latitute:</label><input type='text' value={this.state.location.lat} disabled/>
                     <label>Longitute:</label><input type='text' value={this.state.location.lng} disabled/>
                     <label>Zoom:</label><input type='text' value={this.state.zoom} disabled/>
                     <MapPicker defaultLocation={this.state.location}
                         apiKey='AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U'/>
-                </div>
+                </div>*/}
+                <iframe
+                    width="600"
+                    height="450"
+                    loading="lazy"
+                    src={`https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U&location=${this.state.location}`}>
+                </iframe>
                 
             </div>
         )
