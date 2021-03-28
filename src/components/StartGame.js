@@ -34,6 +34,7 @@ class StartGame extends Component {
     render() {
         return (                
             <div className="start-page">
+                <h4>[Seeker]</h4>
                 <h2>Close your eyes</h2>
                 <h3>To what are you counting to?</h3>
                 <Select className="dropdown" options={numbers} onChange={this.handleTimePick}/>

@@ -58,6 +58,7 @@ class Form extends Component {
     render () {
         return (
             <div className="directions">
+                <h4>[Hider]</h4>
                 <h2>Quick! You have <Countdown date={Date.now() + this.state.time} onComplete={this.submit}/> seconds to hide!</h2>
                 <h3>Choose your avatar:</h3>
                 <div className="dropdown">
