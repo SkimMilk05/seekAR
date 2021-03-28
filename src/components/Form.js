@@ -72,6 +72,7 @@ class Form extends Component {
                     <MapPicker defaultLocation={this.state.location}
                         apiKey='AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U'/>
                 </div>*/}
+                <button className="btn">Select Location</button> <br></br>
                 <iframe
                     width="600"
                     height="450"

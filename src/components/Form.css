@@ -8,7 +8,7 @@
 
 .dropdown{
   margin: 0 auto;
-  width: 20%;
+  width: 40%;
 }
 
 .map{
@@ -19,8 +19,8 @@
 .btn {
   background-color: #FAF9F9;
   color: black;
-  margin: 5%;
-  padding: 16px;
+  margin-top: 5%;
+  padding: 10px;
   font-size: 20px;
   border: none;
   cursor: pointer;
