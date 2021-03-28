@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Text, Button, StyleSheet, View, TextInput, Alert } from 'react-native';
-import './Form.css'
+import './Form.css';
 // import ApiKeys from "./ApiKeys.js";
 // import select from 'react-select';
 // import Select from '@material-ui/core/Select';
@@ -12,6 +12,24 @@ import Countdown from 'react-countdown';
 // import FormHelperText from '@material-ui/core/FormHelperText';
 // import FormControl from '@material-ui/core/FormControl';
 import {modelLinks} from './modelLink.js';
+import Select from 'react-select';
+
+import MapPicker from 'react-google-map-picker';
+
+var location;
+
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+  
+function showPosition(position) {
+    location = {lat: position.coords.latitude, lng: position.coords.longitude};
+    alert('set location');
+}
 
 class Form extends Component {
     // Defaults:
@@ -104,53 +122,43 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.state = { //fields
-            model: '',
-            time: 30000,
+            model_link: '',
+            time: this.props.time,
             end: false
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleModelPick = this.handleModelPick.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({model: event.target.value});
+    handleModelPick(event) {
+        this.setState({model_link: event.value});
+    }
+
+    submit() {
+        this.setState({end: true});
+        this.props.passModelData(this.state.model_link);
+        alert('Time out')
     }
 
     componentDidMount() {
-        setTimeout(()=> this.setState({end: true}), this.state.time)
+        getLocation();
     }
 
+
+
     render () {
+        const defaultZoom = 20;
+        var defaultLocation = {lat: 38.0336, lng: 78.5080};
         return (
             <div>
-                <h2 className="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
-                <h2 className="directions">Choose your object:</h2>
+                <h2 className="directions">Quick! You have <Countdown date={Date.now() + this.state.time} onComplete={this.submit}/> seconds to hide!</h2>
+                <h2 className="directions">Choose your avatar:</h2>
                 <div className="dropdown">
-                    <button className="dropbtn">Choose Object</button>
-                    <div className="dropdown-content" onChange={this.handleChange}>
-                        <a value={modelLinks.corgi}>Corgi</a>
-                        <a value="corgi">Corgi</a>
-                        <a value="corgi">Corgi</a>
-                        <a value="corgi">Corgi</a>
-                        <a value="corgi">Corgi</a>
-                    </div>
-                    {/* <FormControl variant="outlined" classNameName={classNamees.formControl}>
-                        <InputLabel id="demo-simple-select-outlined-label">Model</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-outlined-label"
-                            id="demo-simple-select-outlined"
-                            value={model}
-                            onChange={handleChange}
-                            label="Model"
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <MenuItem value={"https://go.echoar.xyz/cESt"}>Corgi</MenuItem>
-                            <MenuItem value={"https://go.echoar.xyz/cESt"}>Corgi</MenuItem>
-                            <MenuItem value={"https://go.echoar.xyz/cESt"}>Corgi</MenuItem>
-                        </Select>
-                    </FormControl> */}
+                    <Select options={modelLinks} onChange={this.handleModelPick}/>
+                    <button onClick={this.submit} className="dropbtn">Done Hiding</button>
                 </div>
+                <MapPicker defaultLocation={defaultLocation}
+                    apiKey='AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U'/>
             </div>
         )
     }

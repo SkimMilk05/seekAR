@@ -1,7 +1,7 @@
-export const modelLinks = {
-    corgi: "https://go.echoar.xyz/cESt",
-    milk: "https://go.echoar.xyz/XC8E",
-    pika: "https://go.echoar.xyz/uwCp",
-    virus: "https://go.echoar.xyz/ZxrS",
-    shroom: "https://go.echoar.xyz/HmME",
-};
+export const modelLinks = [
+    {label: 'corgi', value: "https://go.echoar.xyz/cESt"},
+    {label: 'skim milk', value: "https://go.echoar.xyz/XC8E"},
+    {label: 'pikachu', value: "https://go.echoar.xyz/uwCp"},
+    {label: 'virus', value: "https://go.echoar.xyz/ZxrS"},
+    {label: 'mushrooms', value: "https://go.echoar.xyz/HmME"}
+];

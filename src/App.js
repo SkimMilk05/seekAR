@@ -1,4 +1,5 @@
 import './App.css';
+import UserSess from './components/UserSess.js';
 
 import React, { Component } from 'react';
 
@@ -8,21 +9,23 @@ class App extends Component {
         this.state = { //fields
             players: [],
             seeker: 0,
-            round_in_sesion: false
+            round_in_sesion: false,
+            time: 0
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleStart = this.handleStart.bind(this);
     }
     handleStart() {
-      
+      this.setState({round_in_sesion: false});
     }
 
     handleFinish() {
-        this.setState({round_in_sesion: false})
+        this.setState({round_in_sesion: false});
+        this.setState({seeker: (this.state.seeker + 1) % this.state.players.length})
     }
 
 
     render() {
-        return (null);
+        return (<UserSess time={this.state.time}/>);
     }
 }
 
