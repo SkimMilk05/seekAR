@@ -147,8 +147,7 @@ class Form extends Component {
 
 
     render () {
-        const defaultZoom = 20;
-        var defaultLocation = {lat: 38.0336, lng: 78.5080};
+
         return (
             <div>
                 <h2 className="directions">Quick! You have <Countdown date={Date.now() + this.state.time} onComplete={this.submit}/> seconds to hide!</h2>
@@ -157,7 +156,7 @@ class Form extends Component {
                     <Select options={modelLinks} onChange={this.handleModelPick}/>
                     <button onClick={this.submit} className="dropbtn">Done Hiding</button>
                 </div>
-                <MapPicker defaultLocation={defaultLocation}
+                <MapPicker defaultLocation={location}
                     apiKey='AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U'/>
             </div>
         )
