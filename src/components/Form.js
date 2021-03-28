@@ -32,102 +32,21 @@ function showPosition(position) {
 }
 
 class Form extends Component {
-    // Defaults:
-    // target_type: 1 (GEOLOCATION_TARGET)
-    // hologram_type: 2 (MODEL_HOLOGRAM)
-    // data is optional
-    // const [location, setLocation] = useState("") // send an address, not longitude and latitude
-    // const [keyword, setKeyword] = useState("")  // keyword to search for hologram
-    // const [model, setModel] = useState({}) // should be an object, set when name
-    // const [allModels, setAllModels] = useState([]) // use this to store all of the Models 
-    // let PolyKey
-    // let poly_reponse
-    // let echoKey
-
-   /* 
-    async function loadModels(inputValue) {
-        PolyKey = ApiKeys.GooglePoly
-        const url = new URL(`https://console.echoAR.xyz/search?key=${PolyKey}&keywords=${keyword}`)
-        poly_reponse = await fetch(url)
-        poly_response = await poly_response.json()
-        setAllModels(poly_response)
-        console.log(poly_response);
-        return poly_response.map(function (model) {
-            return { label: model.name };
-        });
-    }
-
-    function getModel(model_name) {
-        allModels.map(model => {
-            if (model.name === model_name) {
-                setModel(model) // should be an object
-            }
-        })
-    }
-    */
-    // function handleSubmit() {
-    //     echoKey = ApiKeys.echo
-    //     const url = new URL('https://console.echoAR.xyz/upload')
-    //     let params;
-    //     // make condition for Poly and Sketchfab
-    //     if (model.source === "Poly") {
-    //         params = new URLSearchParams({
-    //             "key": echoKey,
-    //             "email": ApiKeys.email, // Sion's email in echoAR
-    //             "target_type": 1,
-    //             "hologram_type": 2,
-    //             "type": "search",
-    //             "source": "Poly",
-    //             "bin_url": model.bin_url,
-    //             "gltf_url": model.gltf_url,
-    //             "thumbnail": model.thumbnail,
-    //             "png_url": model.png_url, // may be a problem if some don't have (check demo)
-    //             "png_path": model.png_path
-    //         })
-    //     }
-    //     if (model.source === "Sketchfab") {
-    //         params = new URLSearchParams({
-    //             "key": echoKey,
-    //             "email": ApiKeys.email, // Sion's email in echoAR
-    //             "target_type": 1,
-    //             "hologram_type": 2,
-    //             "type": "search",
-    //             "source": "Poly",
-    //             "url": model.url
-    //         })
-    //     }
-
-    //     fetch(url)
-    //         .then(response => {
-    //             return console.log(response);
-    //         })
-    //         .then(json => {
-    //             console.log(json);
-    //         })
-
-
-    // }
-    // const useStyles = makeStyles((theme) => ({
-    //     formControl: {
-    //         margin: theme.spacing(1),
-    //         minWidth: 120,
-    //     },
-    //     selectEmpty: {
-    //         marginTop: theme.spacing(2),
-    //     },
-    // }));
-
-    // const classNamees = useStyles();
 
     constructor(props) {
         super(props);
         this.state = { //fields
             model_index: null,
             time: this.props.time,
-            end: false
+            end: false,
+            location: {lat:0, lng: 0},
+            zoom: 20
         };
         this.handleModelPick = this.handleModelPick.bind(this);
         this.submit = this.submit.bind(this);
+        this.handleChangeLocation = this.handleChangeLocation.bind(this);
+        this.handleChangeZoom = this.handleChangeZoom.bind(this);
+        this.handleResetLocation = this.handleResetLocation.bind(this);
     }
 
     handleModelPick(event) {
@@ -144,6 +63,19 @@ class Form extends Component {
         getLocation();
     }
 
+    handleChangeLocation (lat, lng){
+        this.setState({location: {lat:lat, lng:lng}});
+    }
+
+    handleChangeZoom (newZoom){
+        this.setState({zoom: newZoom});
+    }
+
+    handleResetLocation(){
+        this.setState({location: {lat:0, lng:0}});
+        this.setState({zoom: 20});
+    }
+
 
 
     render () {
@@ -156,8 +88,15 @@ class Form extends Component {
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
                     <button onClick={this.submit} className="dropbtn">Done Hiding</button>
                 </div>
-                <MapPicker defaultLocation={location}
-                    apiKey='AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U'/>
+                <div>
+                    <button onClick={this.handleResetLocation}>Reset Location</button>
+                    <label>Latitute:</label><input type='text' value={this.state.location.lat} disabled/>
+                    <label>Longitute:</label><input type='text' value={this.state.location.lng} disabled/>
+                    <label>Zoom:</label><input type='text' value={this.state.zoom} disabled/>
+                    <MapPicker defaultLocation={this.state.location}
+                        apiKey='AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U'/>
+                </div>
+                
             </div>
         )
     }
