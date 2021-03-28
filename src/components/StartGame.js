@@ -35,11 +35,13 @@ class StartGame extends Component {
     render() {
         return (                
             <div className="start-page">
-                <h4>[Seeker]</h4>
-                <h2>Close your eyes</h2>
-                <h3>What are you counting to?</h3>
-                <Select className="dropdown" options={numbers} onChange={this.handleTimePick}/>
-                <button className="btn" onClick={this.handleSubmit}>Starting Countdown!</button>
+                <div className="inner-box">
+                    <h3>[Seeker]</h3>
+                    <h1>Close your eyes</h1>
+                    <h3>What are you counting to?</h3>
+                    <Select className="dropdown" options={numbers} onChange={this.handleTimePick} />
+                    <button className="btn" onClick={this.handleSubmit}>Starting Countdown!</button>
+                </div>
             </div>
         );
     }

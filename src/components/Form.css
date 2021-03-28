@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+html, body{
+  margin: 0px;
+  height: 100%;
+}
 .directions {
   color:black;
   font-family: 'Quicksand', sans-serif;
   background-color: #b7ead9a6;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
 }
 
