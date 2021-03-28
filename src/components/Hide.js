@@ -18,31 +18,26 @@ class Hide extends Component {
     }
 
     catchModelData = (model) => {
-        if (model == null) {
-            alert("You ran out of time! The seeker wins.");
-        } else {
-            this.setState({model_index: model});
-            this.passModelData(model);
-        }
+        this.setState({model_index: model});
+        this.props.passModelData(model);
     }
 
     catchEndData = () => {
         this.setState({end: true});
-        if (this.state.model_index != null) {
-            this.passEnd(true);
+        if (this.state.model_index !== null) {
+            this.props.passEnd(true);
+        } else {
+            alert("You ran out of time! The seeker wins.");
         }
     }
 
     render () {
-        if (!this.state.end) {
-            return (
-                <div>
-                    <Timer passEndData={this.catchEndData} time={this.props.time}/>
-                    <Form passModelData={this.catchModelData}/>
-                </div>
-            )
-        } 
-        else {return null}
+        return (
+            <div>
+                <Timer passEndData={this.catchEndData} time={this.props.time}/>
+                <Form passModelData={this.catchModelData}/>
+            </div>
+        )
     }
     
 }

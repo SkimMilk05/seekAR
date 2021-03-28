@@ -10,8 +10,6 @@ class Form extends Component {
     constructor(props) {
         super(props);
         this.state = { //fields
-            model_index: null,
-            end: false,
             location: "0,0",
             zoom: 20
         };
@@ -19,7 +17,7 @@ class Form extends Component {
     }
 
     handleModelPick(event) {
-        this.setState({model_index: event.value});
+        this.props.passModelData(event.value);
     }
 
     getLocation() {
@@ -45,7 +43,7 @@ class Form extends Component {
 
     render () {
         return (
-            <div className="directions">
+            <>
                 <h3>Choose your avatar:</h3>
                 <div className="dropdown">
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
@@ -57,7 +55,7 @@ class Form extends Component {
                     loading="lazy"
                     src={`https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBW5nsWZ5VwjfS4ajbGsV-HmLuXPd8K6_U&location=${this.state.location}`}>
                 </iframe>
-            </div>
+            </>
         )
     }
     
