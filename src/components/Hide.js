@@ -27,7 +27,7 @@ class Hide extends Component {
         if (this.state.model_index !== null) {
             this.props.passEnd(true);
         } else {
-            alert("You ran out of time! The seeker wins.");
+            if (!alert("You ran out of time! The seeker wins.")) { window.location.reload(); }
         }
     }
 

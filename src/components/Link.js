@@ -15,7 +15,7 @@ class Link extends Component {
 
     handleSubmit() {
         this.setState({item_found: true})
-        alert('You found them!')
+        if (!alert("You found the item! Play Again!")) { window.location.reload(); }
     }
     
 
