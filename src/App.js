@@ -8,7 +8,6 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = { //fields
-            start_game: true,
             hide: false,
             link: false,
 
