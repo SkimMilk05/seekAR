@@ -27,12 +27,15 @@ class Link extends Component {
     render() {
         return (                
             <div className="link-page">
-                <a href={this.state.link} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>Ready or not, here I come!</a>
+                Ready or not...
+                <a href={this.state.link} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
+                    Here I come!</a>
                 <button type="submit"
                     title="I found you!"
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}
                 />
+                
             </div>
         );
     }
