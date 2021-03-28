@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Link.css'
-
+import {modelLinks} from './modelLink.js';
+import {modelQRs} from './modelLink.js';
 
 
 class Link extends Component {
@@ -8,7 +9,7 @@ class Link extends Component {
         super(props);
         this.state = { //fields
             link_clicked: false,
-            item_found: false,
+            item_found: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.linkClicked = this.linkClicked.bind(this);
@@ -25,16 +26,18 @@ class Link extends Component {
     }
 
     render() {
+        const model = this.props.model;
         return (                
             <div className="link-page">
                 Ready or not...
-                <a href={this.state.link} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
+                <a href={modelLinks[model]} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
                     Here I come!</a>
                 <button type="submit"
                     title="I found you!"
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}
                 />
+                <img scr={modelQRs[model]}/>
                 
             </div>
         );

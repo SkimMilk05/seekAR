@@ -8,7 +8,7 @@ class UserSess extends Component {
         super(props);
         this.state = { //fields
             seeker: null,
-            link: '',
+            model: '',
             time: 0
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,8 +18,8 @@ class UserSess extends Component {
         this.setState({item_found: true})
     }
 
-    catchModelData = (link) => {
-      this.setState({link: link});
+    catchModelData = (model) => {
+      this.setState({model: model});
     }
 
 
@@ -28,7 +28,7 @@ class UserSess extends Component {
           <div className="App">
             <header className="App-header">
               <Form time={this.state.time} passModelData={this.catchModelData} />
-              <Link link={this.state.link}/>
+              <Link model={this.state.model}/>
               <StartGame />
             </header>
           </div>
