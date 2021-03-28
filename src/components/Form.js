@@ -124,7 +124,7 @@ class Form extends Component {
             <div>
                 <h2 className="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
                 <h2 className="directions">Choose your object:</h2>
-                <div>
+                <div className="dropdown">
                     <button className="dropbtn">Choose Object</button>
                     <div className="dropdown-content" onChange={this.handleChange}>
                         <a value={modelLinks.corgi}>Corgi</a>
