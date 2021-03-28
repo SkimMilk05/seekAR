@@ -121,7 +121,7 @@ class Form extends Component {
     render () {
         return (
             <div>
-                Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!
+                <h2 classname="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
                 <h1>Choose your object:</h1>
                 <div>
                     <select classname="dropdown" onChange={this.handleChange}>
