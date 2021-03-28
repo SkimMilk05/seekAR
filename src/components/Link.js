@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Link.css'
 import {modelLinks} from './modelLink.js';
 import {modelQRs} from './modelLink.js';
+import pika from './assets/pika.PNG';
 
 
 class Link extends Component {
@@ -37,7 +38,7 @@ class Link extends Component {
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}
                 />
-                <img scr={modelQRs[model]}/>
+                <img scr={pika}/>
                 
             </div>
         );
