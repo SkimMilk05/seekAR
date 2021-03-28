@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 // import { Text, Button, StyleSheet, View, TextInput, Alert } from 'react-native';
 import modelLink from './modelLink.js'
 import './Form.css'
-//import ApiKeys from "./ApiKeys.js";
-//import Select from 'react-select';
+// import ApiKeys from "./ApiKeys.js";
+// import select from 'react-select';
 // import Select from '@material-ui/core/Select';
 import Countdown from 'react-countdown';
+
 // import { makeStyles } from '@material-ui/core/styles';
 // import InputLabel from '@material-ui/core/InputLabel';
 // import MenuItem from '@material-ui/core/MenuItem';
@@ -122,16 +123,17 @@ class Form extends Component {
     render () {
         return (
             <div>
-                <h2 classname="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
-                <h1>Choose your object:</h1>
+                <h2 class="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
+                <h2 class="directions">Choose your object:</h2>
                 <div>
-                    <select classname="dropdown" onChange={this.handleChange}>
-                        <option classname="dropdown-content" value={modelLinks.corgi}>Corgi</option>
-                        <option classname="dropdown-content" value="corgi">Corgi</option>
-                        <option classname="dropdown-content" value="corgi">Corgi</option>
-                        <option classname="dropdown-content" value="corgi">Corgi</option>
-                        <option classname="dropdown-content" value="corgi">Corgi</option>
-                    </select>
+                    <button class="dropbtn">Choose Object</button>
+                    <div class="dropdown" onChange={this.handleChange}>
+                        <a class="dropdown-content" value={modelLink.corgi}>Corgi</a>
+                        <a class="dropdown-content" value="corgi">Corgi</a>
+                        <a class="dropdown-content" value="corgi">Corgi</a>
+                        <a class="dropdown-content" value="corgi">Corgi</a>
+                        <a class="dropdown-content" value="corgi">Corgi</a>
+                    </div>
                     {/* <FormControl variant="outlined" className={classes.formControl}>
                         <InputLabel id="demo-simple-select-outlined-label">Model</InputLabel>
                         <Select
