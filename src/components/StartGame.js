@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import './StartGame.css'
+// seeker
 
 const numbers = [
     {label: '10 sec', value: 10000},

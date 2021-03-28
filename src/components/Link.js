@@ -3,7 +3,7 @@ import './Link.css'
 import {modelLinks} from './modelLink.js';
 import {modelQRs} from './modelLink.js';
 import pika from './assets/pika.PNG';
-
+// seeker
 
 class Link extends Component {
     constructor(props) {

@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-// import { Text, Button, StyleSheet, View, TextInput, Alert } from 'react-native';
-import './Form.css';
-// import ApiKeys from "./ApiKeys.js";
-// import select from 'react-select';
-// import Select from '@material-ui/core/Select';
-import Countdown from 'react-countdown';
-
-// import { makeStyles } from '@material-ui/core/styles';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import FormHelperText from '@material-ui/core/FormHelperText';
-// import FormControl from '@material-ui/core/FormControl';
+import './Form.css';import Countdown from 'react-countdown';
 import {modelOptions} from './modelLink.js';
 import Select from 'react-select';
-
 import MapPicker from 'react-google-map-picker';
+// hider
 
 var location;
 
