@@ -11,6 +11,7 @@ import Countdown from 'react-countdown';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import FormHelperText from '@material-ui/core/FormHelperText';
 // import FormControl from '@material-ui/core/FormControl';
+import {modelLinks} from './modelLink.js';
 
 class Form extends Component {
     // Defaults:
@@ -125,7 +126,7 @@ class Form extends Component {
                 <h1>Choose your object:</h1>
                 <div>
                     <select classname="dropdown" onChange={this.handleChange}>
-                        <option classname="dropdown-content" value={modelLink.corgi}>Corgi</option>
+                        <option classname="dropdown-content" value={modelLinks.corgi}>Corgi</option>
                         <option classname="dropdown-content" value="corgi">Corgi</option>
                         <option classname="dropdown-content" value="corgi">Corgi</option>
                         <option classname="dropdown-content" value="corgi">Corgi</option>
