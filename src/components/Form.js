@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import './Form.css';import Countdown from 'react-countdown';
+import './Form.css';
 import {modelOptions} from './modelLink.js';
 import Select from 'react-select';
 
-var location;
 
 class Form extends Component {
 
@@ -49,7 +48,7 @@ class Form extends Component {
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
                 </div>
                 <button className="location-btn">Select Location</button> <br></br>
-                <iframe
+                <iframe title="where-to-hide"
                     className="map"
                     width="600"
                     height="450"
