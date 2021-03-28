@@ -30,10 +30,10 @@ class Link extends Component {
         const model = this.props.model;
         return (                
             <div className="link-page">
-                Ready or not...
-                <a href={modelLinks[model]} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
+                <h2>Ready or not...</h2>
+                <a classname="link-here" href={modelLinks[model]} target="_blank" rel="noopener noreferrer" onClick={this.linkClicked}>
                     Here I come!</a>
-                <button type="submit"
+                <button className="btn" type="submit"
                     title="I found you!"
                     disabled={!this.state.link_clicked}
                     onClick={this.handleSubmit}

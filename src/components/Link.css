@@ -7,3 +7,23 @@
   border: none;
   cursor: pointer;
 }
+
+.link-page{
+  color: black;
+  background-color: #da8db1;
+  width: 100%;
+}
+
+.link-here{
+  font-size: larger;
+}
+
+.btn{
+    background-color: #FAF9F9;
+    color: black;
+    margin: 5%;
+    padding: 16px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}

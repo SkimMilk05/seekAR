@@ -65,20 +65,17 @@ class Form extends Component {
         this.setState({zoom: 20});
     }
 
-
-
     render () {
-
         return (
-            <div>
-                <h2 className="directions">Quick! You have <Countdown date={Date.now() + this.state.time} onComplete={this.submit}/> seconds to hide!</h2>
-                <h2 className="directions">Choose your avatar:</h2>
+            <div className="directions">
+                <h2>Quick! You have <Countdown date={Date.now() + this.state.time} onComplete={this.submit}/> seconds to hide!</h2>
+                <h3>Choose your avatar:</h3>
                 <div className="dropdown">
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
-                    <button onClick={this.submit} className="dropbtn">Done Hiding</button>
+                    <button onClick={this.submit} className="btn">Done Hiding</button>
                 </div>
-                <div>
-                    <button onClick={this.handleResetLocation}>Reset Location</button>
+                <div className="map">
+                    <button className="btn" onClick={this.handleResetLocation}>Reset Location</button><br></br>
                     <label>Latitute:</label><input type='text' value={this.state.location.lat} disabled/>
                     <label>Longitute:</label><input type='text' value={this.state.location.lng} disabled/>
                     <label>Zoom:</label><input type='text' value={this.state.zoom} disabled/>

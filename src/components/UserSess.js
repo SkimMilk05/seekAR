@@ -27,9 +27,10 @@ class UserSess extends Component {
         return (
           <div className="App">
             <header className="App-header">
+              <StartGame/>              
               <Form time={this.state.time} passModelData={this.catchModelData} />
               <Link model={this.state.model}/>
-              <StartGame />
+              
             </header>
           </div>
         );
