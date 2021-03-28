@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import { Text, Button, StyleSheet, View, TextInput, Alert } from 'react-native';
-import modelLink from './modelLink.js'
 import './Form.css'
 // import ApiKeys from "./ApiKeys.js";
 // import select from 'react-select';
