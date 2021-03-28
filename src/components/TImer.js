@@ -19,10 +19,10 @@ class Timer extends Component {
 
     render () {
         return (
-            <div className="directions">
+            <>
                 <h2>Quick! You have <Countdown date={Date.now() + this.props.time} onComplete={this.submit} autoStart={true}/> seconds to hide!</h2>
                 <button onClick={this.submit} className="btn">Done Hiding</button>
-            </div>
+            </>
         )
     }
     
