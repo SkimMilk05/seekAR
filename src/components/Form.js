@@ -127,7 +127,7 @@ class Form extends Component {
                 <div>
                     <button class="dropbtn">Choose Object</button>
                     <div class="dropdown" onChange={this.handleChange}>
-                        <a class="dropdown-content" value={modelLink.corgi}>Corgi</a>
+                        <a class="dropdown-content" value={modelLinks.corgi}>Corgi</a>
                         <a class="dropdown-content" value="corgi">Corgi</a>
                         <a class="dropdown-content" value="corgi">Corgi</a>
                         <a class="dropdown-content" value="corgi">Corgi</a>
