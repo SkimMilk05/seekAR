@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Link.css'
 
 class Link extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class Link extends Component {
         return (                
             <div className="link-page">
                 <form action={this.state.link} target="_blank">
-                    <button onClick={this.linkClicked}>Ready or not, here I come!</button>
+                    <button className="start-btn" onClick={this.linkClicked}>Ready or not, here I come!</button>
                 </form>
                 <button ref="found-btn" type="submit"
                     title="I found you!"

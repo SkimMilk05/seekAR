@@ -1,0 +1,9 @@
+.start-btn {
+  background-color: #3F4739;
+  color: white;
+  padding: 16px;
+  margin-top: 20px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}

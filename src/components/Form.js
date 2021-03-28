@@ -99,7 +99,7 @@ class Form extends Component {
     //     },
     // }));
 
-    // const classes = useStyles();
+    // const classNamees = useStyles();
 
     constructor(props) {
         super(props);
@@ -122,18 +122,18 @@ class Form extends Component {
     render () {
         return (
             <div>
-                <h2 class="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
-                <h2 class="directions">Choose your object:</h2>
+                <h2 className="directions">Quick! You have <Countdown date={Date.now() + this.state.time}/> seconds to hide!</h2>
+                <h2 className="directions">Choose your object:</h2>
                 <div>
-                    <button class="dropbtn">Choose Object</button>
-                    <div class="dropdown" onChange={this.handleChange}>
-                        <a class="dropdown-content" value={modelLink.corgi}>Corgi</a>
-                        <a class="dropdown-content" value="corgi">Corgi</a>
-                        <a class="dropdown-content" value="corgi">Corgi</a>
-                        <a class="dropdown-content" value="corgi">Corgi</a>
-                        <a class="dropdown-content" value="corgi">Corgi</a>
+                    <button className="dropbtn">Choose Object</button>
+                    <div className="dropdown-content" onChange={this.handleChange}>
+                        <a value={modelLinks.corgi}>Corgi</a>
+                        <a value="corgi">Corgi</a>
+                        <a value="corgi">Corgi</a>
+                        <a value="corgi">Corgi</a>
+                        <a value="corgi">Corgi</a>
                     </div>
-                    {/* <FormControl variant="outlined" className={classes.formControl}>
+                    {/* <FormControl variant="outlined" classNameName={classNamees.formControl}>
                         <InputLabel id="demo-simple-select-outlined-label">Model</InputLabel>
                         <Select
                             labelId="demo-simple-select-outlined-label"
