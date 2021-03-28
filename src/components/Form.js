@@ -44,7 +44,7 @@ class Form extends Component {
         return (
             <>
                 <h3>Choose your avatar:</h3>
-                <div className="dropdown">
+                <div className="model-dropdown">
                     <Select options={modelOptions} onChange={this.handleModelPick}/>
                 </div>
                 <button className="location-btn">Select Location</button> <br></br>
